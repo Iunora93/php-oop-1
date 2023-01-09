@@ -44,12 +44,12 @@ class Movie {
   
 }
 
-$film1 = new Movie("Harry Potter", "Fantasy", "2:49", 2001, $_vote);
+$film1 = new Movie("Harry Potter", "Fantasy", "2:49", 2001, 5);
 echo $film1->title;
 echo $film1->genre;
 echo $film1->duration;
 echo $film1->year;
-echo $film1->getDiscount();
+echo $film1->setDiscount(40);
 
 ?>
 
