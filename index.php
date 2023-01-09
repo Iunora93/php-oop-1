@@ -23,6 +23,7 @@ class Movie {
   public $genre;
   public $duration;
   public $year;
+  public $vote;
   private $discount = 0;
 
   function __construct($_title, $_genre, $_duration, $_year, $_vote)
@@ -31,8 +32,9 @@ class Movie {
     $this->genre = $_genre;
     $this->duration = $_duration;
     $this->year = $_year;
+    $this->vote = $_vote;
     if($_vote > 4)
-    $this->setDiscount(40);
+    $this->setDiscount("20%");
   }
 
   public function setDiscount($_discount){
@@ -44,12 +46,12 @@ class Movie {
   
 }
 
-$film1 = new Movie("Harry Potter", "Fantasy", "2:49", 2001, 5);
+$film1 = new Movie("Harry Potter", "Fantasy", "2:49", 2001, 7);
 echo $film1->title;
 echo $film1->genre;
 echo $film1->duration;
 echo $film1->year;
-echo $film1->setDiscount(40);
+echo $film1->vote
 
 ?>
 
@@ -63,6 +65,7 @@ echo $film1->setDiscount(40);
   <title>Document</title>
 </head>
 <body>
-  <h1>il discount è : <?php echo $film1->getDiscount(); ?></h1>
+  <h3>Se il film ha un voto maggiore di 5</h3>
+  <h1>lo sconto è del: <?php echo $film1->getDiscount(); ?></h1>
 </body>
 </html>
