@@ -25,19 +25,18 @@ class Movie {
   public $year;
   private $discount = 0;
 
-  function __construct($_title, $_genre, $_duration, $_year, $_discount)
+  function __construct($_title, $_genre, $_duration, $_year, $_vote)
   {
     $this->title = $_title;
     $this->genre = $_genre;
     $this->duration = $_duration;
     $this->year = $_year;
-    $this->discount = $_discount;
+    if($_vote > 4)
+    $this->setDiscount(40);
   }
 
-  public function setDiscount($_vote){
-    if($_vote > 4){
-      $this->discount = 40;
-    }
+  public function setDiscount($_discount){
+    $this->discount = $_discount;
   }
   public function getDiscount() {
     return $this->discount;
@@ -45,12 +44,12 @@ class Movie {
   
 }
 
-$film1 = new Movie("Harry Potter", "Fantasy", "2:49", 2001, $_discount);
+$film1 = new Movie("Harry Potter", "Fantasy", "2:49", 2001, $_vote);
 echo $film1->title;
 echo $film1->genre;
 echo $film1->duration;
 echo $film1->year;
-echo $film1->setDiscount(5);
+echo $film1->getDiscount();
 
 ?>
 
